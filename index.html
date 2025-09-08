@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Timeline Compressor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="quantum-orbit">
+                    <div class="quantum-dot"></div>
+                </div>
+                <h1>Quantum Timeline Compressor</h1>
+            </div>
+            <p class="tagline">Сжимайте сроки проектов с квантовой скоростью</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="setup-panel">
+                <h2>Настройка проекта</h2>
+                
+                <div class="input-group">
+                    <label for="projectFile">Загрузите проект (JSON):</label>
+                    <input type="file" id="projectFile" accept=".json">
+                    <div class="sample-links">
+                        <a href="#" onclick="loadSampleProject('simple')">Простой проект</a> |
+                        <a href="#" onclick="loadSampleProject('complex')">Сложный проект</a>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Целевые параметры сжатия:</label>
+                    <div class="slider-container">
+                        <label>Агрессивность сжатия: <span id="aggressionValue">70</span>%</label>
+                        <input type="range" id="aggressionSlider" min="10" max="90" value="70">
+                    </div>
+                    <div class="slider-container">
+                        <label>Допустимый риск: <span id="riskValue">30</span>%</label>
+                        <input type="range" id="riskSlider" min="5" max="50" value="30">
+                    </div>
+                </div>
+                
+                <button id="runAnalysis" class="primary-btn">
+                    <span class="icon">⚡</span> Запустить квантовый анализ
+                </button>
+                
+                <div id="status" class="status-panel"></div>
+            </div>
+            
+            <div class="results-panel" id="resultsPanel" style="display:none;">
+                <h2>Результаты анализа</h2>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Сокращение сроков</div>
+                        <div class="metric-value" id="timelineReduction">0%</div>
+                        <div class="metric-description">Ваш проект может быть завершен быстрее</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Оптимальный путь</div>
+                        <div class="metric-value" id="optimalPath">-</div>
+                        <div class="metric-description">Из 10,000+ проанализированных вариантов</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Уровень риска</div>
+                        <div class="metric-value" id="riskLevel">0%</div>
+                        <div class="metric-description">В пределах допустимого порога</div>
+                    </div>
+                </div>
+                
+                <div class="visualization-container">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="timeline">Сжатый график</button>
+                        <button class="tab-btn" data-tab="quantum">Квантовая визуализация</button>
+                        <button class="tab-btn" data-tab="recommendations">Рекомендации</button>
+                    </div>
+                    
+                    <div id="timelineView" class="tab-content active">
+                        <div id="ganttChart" class="chart"></div>
+                    </div>
+                    
+                    <div id="quantumView" class="tab-content" style="display:none;">
+                        <div id="quantumVisualization" class="chart"></div>
+                        <p class="quantum-explanation">
+                            Визуализация квантовых туннелей между возможными путями выполнения проекта. 
+                            Яркие области показывают оптимальные квантовые состояния для сжатия сроков.
+                        </p>
+                    </div>
+                    
+                    <div id="recommendationsView" class="tab-content" style="display:none;">
+                        <div class="recommendations-list" id="recommendationsList"></div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="exportPDF" class="secondary-btn">
+                        <span class="icon">📥</span> Экспорт отчета PDF
+                    </button>
+                    <button id="optimizeFurther" class="primary-btn">
+                        <span class="icon">🔍</span> Глубокая оптимизация
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Quantum Timeline Compressor v1.0 &copy; 2025 | Реализовано с использованием квантово-вдохновленных алгоритмов</p>
+        </footer>
+    </div>
+    
+    <script src="qtc-engine.js"></script>
+    <script src="visualization.js"></script>
+</body>
+</html>
